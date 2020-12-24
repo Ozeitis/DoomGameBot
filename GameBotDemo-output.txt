@@ -1,0 +1,177 @@
+Output from running edu.yu.cs.intro.doomGame.GameBotDemo is below.
+Note that in my GameBot.killMonster method, I output a descriptive line when a monster is killed.
+
+******************************************************************************
+******************************************************************************
+******************************************************************************
+******************************************************************************
+******************************************************************************
+Room: Easy Imps. Player Player 1 has killed a IMP. Health is now 97
+Room: Easy Imps. Player Player 1 has killed a IMP. Health is now 95
+Room: Easy Imps. Player Player 1 has killed a IMP. Health is now 94
+Room: Double Demonic. Player Player 1 has killed a DEMON. Health is now 102
+Room: Double Demonic. Player Player 1 has killed a DEMON. Health is now 101
+Room: I&D. Player Player 1 has killed a DEMON. Health is now 97
+Room: I&D. Player Player 1 has killed a IMP. Health is now 94
+Room: I&D. Player Player 1 has killed a IMP. Health is now 92
+Room: I&D. Player Player 1 has killed a IMP. Health is now 91
+Room: Triple Threat. Player Player 1 has killed a IMP. Health is now 87
+Room: Triple Threat. Player Player 1 has killed a SPECTRE. Health is now 84
+Room: Triple Threat. Player Player 1 has killed a DEMON. Health is now 83
+Room: Demon Quad. Player Player 1 has killed a DEMON. Health is now 79
+Room: Demon Quad. Player Player 1 has killed a DEMON. Health is now 76
+Room: Demon Quad. Player Player 1 has killed a DEMON. Health is now 74
+Room: Demon Quad. Player Player 1 has killed a DEMON. Health is now 73
+Room: Fearsome Foursome. Player Player 1 has killed a SPECTRE. Health is now 66
+Room: Fearsome Foursome. Player Player 1 has killed a IMP. Health is now 61
+Room: Fearsome Foursome. Player Player 1 has killed a BARON_OF_HELL. Health is now 57
+Room: Fearsome Foursome. Player Player 1 has killed a DEMON. Health is now 56
+Game named Single Player Success was completed successfully
+**********************************************
+Room name: Easy Imps
+Room completed: true
+State of Monsters in Room:
+IMP: is dead - true
+IMP: is dead - true
+IMP: is dead - true
+**********************************************
+Room name: Double Demonic
+Room completed: true
+State of Monsters in Room:
+DEMON: is dead - true
+DEMON: is dead - true
+**********************************************
+Room name: I&D
+Room completed: true
+State of Monsters in Room:
+DEMON: is dead - true
+IMP: is dead - true
+IMP: is dead - true
+IMP: is dead - true
+**********************************************
+Room name: Triple Threat
+Room completed: true
+State of Monsters in Room:
+IMP: is dead - true
+SPECTRE: is dead - true
+DEMON: is dead - true
+**********************************************
+Room name: Demon Quad
+Room completed: true
+State of Monsters in Room:
+DEMON: is dead - true
+DEMON: is dead - true
+DEMON: is dead - true
+DEMON: is dead - true
+**********************************************
+Room name: Fearsome Foursome
+Room completed: true
+State of Monsters in Room:
+SPECTRE: is dead - true
+IMP: is dead - true
+BARON_OF_HELL: is dead - true
+DEMON: is dead - true
+******************************************************************************
+******************************************************************************
+******************************************************************************
+******************************************************************************
+******************************************************************************
+Room: Easy Imps. Player Player 1 has killed a IMP. Health is now 97
+Room: Easy Imps. Player Player 1 has killed a IMP. Health is now 95
+Room: Easy Imps. Player Player 1 has killed a IMP. Health is now 94
+Room: Double Demonic. Player Player 1 has killed a DEMON. Health is now 102
+Room: Double Demonic. Player Player 1 has killed a DEMON. Health is now 101
+Room: Fearsome Foursome. Player Player 1 has killed a SPECTRE. Health is now 94
+Room: Fearsome Foursome. Player Player 1 has killed a IMP. Health is now 89
+Game named Single Player Failure could not be completed
+**********************************************
+Room name: Easy Imps
+Room completed: true
+State of Monsters in Room:
+IMP: is dead - true
+IMP: is dead - true
+IMP: is dead - true
+**********************************************
+Room name: Double Demonic
+Room completed: true
+State of Monsters in Room:
+DEMON: is dead - true
+DEMON: is dead - true
+**********************************************
+Room name: Fearsome Foursome
+Room completed: false
+State of Monsters in Room:
+SPECTRE: is dead - true
+BARON_OF_HELL: is dead - false
+DEMON: is dead - false
+IMP: is dead - true
+******************************************************************************
+******************************************************************************
+******************************************************************************
+******************************************************************************
+******************************************************************************
+Room: Easy Imps. Player Player 1 has killed a IMP. Health is now 6
+Room: Easy Imps. Player Player 1 has killed a IMP. Health is now 4
+Room: Easy Imps. Player Player 1 has killed a IMP. Health is now 3
+Room: Double Demonic. Player Player 1 has killed a DEMON. Health is now 11
+Room: Double Demonic. Player Player 1 has killed a DEMON. Health is now 10
+Room: Fearsome Foursome. Player Player 1 has killed a IMP. Health is now 3
+Room: Fearsome Foursome. Player Player 2 has killed a SPECTRE. Health is now 94
+Room: Fearsome Foursome. Player Player 2 has killed a BARON_OF_HELL. Health is now 90
+Room: Fearsome Foursome. Player Player 1 has killed a DEMON. Health is now 2
+Game named Multi-Player Success was completed successfully
+**********************************************
+Room name: Easy Imps
+Room completed: true
+State of Monsters in Room:
+IMP: is dead - true
+IMP: is dead - true
+IMP: is dead - true
+**********************************************
+Room name: Double Demonic
+Room completed: true
+State of Monsters in Room:
+DEMON: is dead - true
+DEMON: is dead - true
+**********************************************
+Room name: Fearsome Foursome
+Room completed: true
+State of Monsters in Room:
+IMP: is dead - true
+BARON_OF_HELL: is dead - true
+DEMON: is dead - true
+SPECTRE: is dead - true
+******************************************************************************
+******************************************************************************
+******************************************************************************
+******************************************************************************
+******************************************************************************
+Room: Easy Imps. Player Player 1 has killed a IMP. Health is now 2
+Room: Easy Imps. Player Player 2 has killed a IMP. Health is now 8
+Room: Easy Imps. Player Player 1 has killed a IMP. Health is now 1
+Room: Double Demonic. Player Player 1 has killed a DEMON. Health is now 9
+Room: Double Demonic. Player Player 1 has killed a DEMON. Health is now 8
+Room: Fearsome Foursome. Player Player 1 has killed a IMP. Health is now 1
+Room: Fearsome Foursome. Player Player 2 has killed a SPECTRE. Health is now 2
+Game named Multi-Player Failure could not be completed
+**********************************************
+Room name: Easy Imps
+Room completed: true
+State of Monsters in Room:
+IMP: is dead - true
+IMP: is dead - true
+IMP: is dead - true
+**********************************************
+Room name: Double Demonic
+Room completed: true
+State of Monsters in Room:
+DEMON: is dead - true
+DEMON: is dead - true
+**********************************************
+Room name: Fearsome Foursome
+Room completed: false
+State of Monsters in Room:
+IMP: is dead - true
+SPECTRE: is dead - true
+BARON_OF_HELL: is dead - false
+DEMON: is dead - false
