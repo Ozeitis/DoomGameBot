@@ -1,5 +1,6 @@
 package edu.yu.cs.intro.doomGame;
 
+import java.util.*;
 import java.util.Objects;
 
 /**
@@ -8,6 +9,8 @@ import java.util.Objects;
 public class Player implements Comparable<Player> {
     private String name;
     private int health;
+
+    Map<Weapon, Integer> playerAmmo = new HashMap<>();
 
     /**
      * @param name   the player's name
@@ -29,6 +32,10 @@ public class Player implements Comparable<Player> {
      * @return
      */
     public boolean hasWeapon(Weapon w) {
+        if (!playerAmmo.containsKey(w)) {
+            return false;
+        }
+        return true;
     }
 
     /**
@@ -38,6 +45,7 @@ public class Player implements Comparable<Player> {
      * @return
      */
     public int getAmmunitionRoundsForWeapon(Weapon w) {
+        return playerAmmo.get(w);
     }
 
     /**
@@ -48,7 +56,8 @@ public class Player implements Comparable<Player> {
      * @return the new total amount of ammunition the player has for the weapon.
      */
     public int changeAmmunitionRoundsForWeapon(Weapon weapon, int change) {
-
+        addAmmunition(weapon, change);
+        return playerAmmo.get(weapon);
     }
 
     /**
@@ -62,6 +71,15 @@ public class Player implements Comparable<Player> {
      * @throws IllegalStateException    if the player is dead
      */
     protected int addAmmunition(Weapon weapon, int rounds) {
+        if (weapon == null || playerAmmo.get(weapon) < 0) {
+            throw new IllegalStateException();
+        }
+        if (isDead()) {
+            throw new IllegalStateException();
+        }
+        int currentAmmo = playerAmmo.get(weapon);
+        playerAmmo.put(weapon, currentAmmo + rounds);
+        return playerAmmo.get(weapon);
     }
 
     /**
@@ -75,6 +93,13 @@ public class Player implements Comparable<Player> {
      * @throws IllegalStateException    if the player is dead
      */
     protected boolean addWeapon(Weapon weapon) {
+        if (weapon == null) {
+            throw new IllegalArgumentException();
+        } else if (isDead()) {
+            throw new IllegalStateException();
+        }
+        playerAmmo.put(weapon, 5);
+        return true;
     }
 
     /**
@@ -86,7 +111,10 @@ public class Player implements Comparable<Player> {
      * @throws IllegalStateException if the player is dead
      */
     public int changeHealth(int amount) {
-        return this.health - amount; // correct?
+        if (isDead()) {
+            throw new IllegalStateException();
+        }
+        return this.health + amount; // correct?
     }
 
     /**
@@ -113,7 +141,7 @@ public class Player implements Comparable<Player> {
      * @return
      */
     public boolean isDead() {
-        if (this.health == 0) {
+        if (this.health <= 0) {
             return true;
         }
         return false;

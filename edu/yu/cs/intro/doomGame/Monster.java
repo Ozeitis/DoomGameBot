@@ -5,6 +5,7 @@ package edu.yu.cs.intro.doomGame;
  */
 public class Monster implements Comparable<Monster>{
     //WHAT PARAM GOES HERE FOR MONSTERTYPE?!
+    private MonsterType type;
     /**
      * create a monster with no customr protectors; its protectors will be determined by its MonsterType
      * @param type the type of monster to create

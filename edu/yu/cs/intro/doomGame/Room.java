@@ -156,10 +156,8 @@ public class Room implements Comparable<Room> {
     public int getPlayerHealthLostPerEncounter() {
         int healthLost = 0;
         for (Monster mon : getLiveMonsters()) {
-            changeHealth(this.MonsterType.playerHealthLostPerExposure);
-            healthlost += GET THE playerHealthLostPerExposure;
+            mon.getMonsterType().playerHealthLostPerExposure);
         }
-        return HEALTH LOST
     }
 
     /**
