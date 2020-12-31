@@ -10,7 +10,9 @@ public class Player implements Comparable<Player> {
     private String name;
     private int health;
 
-    Map<Weapon, Integer> playerAmmo = new HashMap<>();
+    private Map<Weapon, Integer> ammo = new HashMap<>();
+    private SortedSet<Weapon> weapons = new TreeSet<>();
+    // HOW!?
 
     /**
      * @param name   the player's name
@@ -19,6 +21,8 @@ public class Player implements Comparable<Player> {
     public Player(String name, int health) {
         this.name = name;
         this.health = health;
+        weapons.add(Weapon.FIST);
+        ammo.put(Weapon.FIST, Integer.MAX_VALUE);
     }
 
     public String getName() {
@@ -32,10 +36,7 @@ public class Player implements Comparable<Player> {
      * @return
      */
     public boolean hasWeapon(Weapon w) {
-        if (!playerAmmo.containsKey(w)) {
-            return false;
-        }
-        return true;
+        return weapons.contains(w);
     }
 
     /**
@@ -45,7 +46,7 @@ public class Player implements Comparable<Player> {
      * @return
      */
     public int getAmmunitionRoundsForWeapon(Weapon w) {
-        return playerAmmo.get(w);
+        return ammo.get(w);
     }
 
     /**
@@ -56,8 +57,9 @@ public class Player implements Comparable<Player> {
      * @return the new total amount of ammunition the player has for the weapon.
      */
     public int changeAmmunitionRoundsForWeapon(Weapon weapon, int change) {
-        addAmmunition(weapon, change);
-        return playerAmmo.get(weapon);
+        int currentAmmo = ammo.getOrDefault(weapon, 0);
+        ammo.put(weapon, currentAmmo += change);
+        return ammo.get(weapon);
     }
 
     /**
@@ -70,16 +72,16 @@ public class Player implements Comparable<Player> {
      * @throws IllegalArgumentException if rounds < 0 or weapon is null
      * @throws IllegalStateException    if the player is dead
      */
-    protected int addAmmunition(Weapon weapon, int rounds) {
-        if (weapon == null || playerAmmo.get(weapon) < 0) {
-            throw new IllegalStateException();
+    protected int addAmmunition(Weapon weapon, int rounds) { // Check for fist and dont add?
+        if (weapon == null || rounds < 0) {
+            throw new IllegalArgumentException();
         }
         if (isDead()) {
             throw new IllegalStateException();
         }
-        int currentAmmo = playerAmmo.get(weapon);
-        playerAmmo.put(weapon, currentAmmo + rounds);
-        return playerAmmo.get(weapon);
+        int currentAmmo = ammo.getOrDefault(weapon, 0);
+        ammo.put(weapon, currentAmmo += rounds);
+        return ammo.get(weapon);
     }
 
     /**
@@ -95,11 +97,17 @@ public class Player implements Comparable<Player> {
     protected boolean addWeapon(Weapon weapon) {
         if (weapon == null) {
             throw new IllegalArgumentException();
-        } else if (isDead()) {
+        }
+        if (isDead()) {
             throw new IllegalStateException();
         }
-        playerAmmo.put(weapon, 5);
-        return true;
+        if (weapons.contains(weapon)) {
+            return false;
+        } else {
+            weapons.add(weapon);
+            addAmmunition(weapon, 5);
+            return true;
+        }
     }
 
     /**
@@ -114,7 +122,7 @@ public class Player implements Comparable<Player> {
         if (isDead()) {
             throw new IllegalStateException();
         }
-        return this.health + amount; // correct?
+        return this.health += amount;
     }
 
     /**
@@ -160,6 +168,36 @@ public class Player implements Comparable<Player> {
      */
     @Override
     public int compareTo(Player other) {
+        Weapon thisWeapon = this.weapons.last();
+        Weapon otherWeapon = other.weapons.last();
+        if (thisWeapon.ordinal() != otherWeapon.ordinal()) {
+            if (thisWeapon.ordinal() > otherWeapon.ordinal()) {
+                return 1;
+            }
+            if (otherWeapon.ordinal() < thisWeapon.ordinal()) {
+                return -1;
+            }
+        }
+        int thisAmmo = this.getAmmunitionRoundsForWeapon(thisWeapon);
+        int otherAmmo = other.getAmmunitionRoundsForWeapon(otherWeapon);
+        if (thisAmmo != otherAmmo) {
+            if (thisAmmo > otherAmmo) {
+                return 1;
+            }
+            if (thisAmmo < otherAmmo) {
+                return -1;
+            }
+        }
+
+        if (this.getHealth() != other.getHealth()) {
+            if (this.getHealth() > other.getHealth()) {
+                return 1;
+            }
+            if (this.getHealth() < other.getHealth()) {
+                return -1;
+            }
+        }
+        return 0;
     }
 
     /**

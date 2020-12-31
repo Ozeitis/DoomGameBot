@@ -8,14 +8,13 @@ import java.util.*;
  * last living monster in the room
  */
 public class Room implements Comparable<Room> {
-    private SortedSet<Monster> monsters; // SORTED SET!?!?!??!
+    private SortedSet<Monster> monsters;
     private Set<Weapon> weaponsWonUponCompletion;
     private Map<Weapon, Integer> ammoWonUponCompletion;
     private int healthWonUponCompletion;
     private String name;
-    
-    private SortedSet<Monster> deadMonsters = new TreeSet<>(); //IDK 
-    private int dangerLevel = 0;
+
+    private SortedSet<Monster> killedMonsters = new TreeSet<>();
 
     /**
      *
@@ -32,9 +31,9 @@ public class Room implements Comparable<Room> {
      */
     public Room(SortedSet<Monster> monsters, Set<Weapon> weaponsWonUponCompletion,
             Map<Weapon, Integer> ammoWonUponCompletion, int healthWonUponCompletion, String name) {
-        this.monsters = new TreeSet<>();
-        this.weaponsWonUponCompletion = new HashSet<>();
-        this.ammoWonUponCompletion = new HashMap<>();
+        this.monsters = monsters;
+        this.weaponsWonUponCompletion = weaponsWonUponCompletion;
+        this.ammoWonUponCompletion = ammoWonUponCompletion;
         this.healthWonUponCompletion = healthWonUponCompletion;
         this.name = name;
 
@@ -47,7 +46,7 @@ public class Room implements Comparable<Room> {
      * @param monster
      */
     protected void monsterKilled(Monster monster) {
-        deadMonsters.add(monster);
+        killedMonsters.add(monster);
     }
 
     /**
@@ -58,11 +57,11 @@ public class Room implements Comparable<Room> {
      * @return the danger level of this room
      */
     public int getDangerLevel() {
-        int result = 0;
+        int danger = 0;
         for (Monster mon : getLiveMonsters()) {
-            result += mon.getMonsterType().ordinal() + 1;
+            danger += mon.getMonsterType().ordinal() + 1;
         }
-        return result;
+        return danger;
     }
 
     /**
@@ -81,7 +80,15 @@ public class Room implements Comparable<Room> {
      */
     @Override
     public int compareTo(Room other) {
-        return Integer.compare(this.getDangerLevel(), other.getDangerLevel()); //correct?
+        if (other == this) {
+            return 0;
+        } else if (this.getDangerLevel() == other.getDangerLevel()) {
+            return 0;
+        } else if (this.getDangerLevel() > other.getDangerLevel()) {
+            return 1;
+        } else {
+            return -1;
+        }
     }
 
     /**
@@ -91,7 +98,7 @@ public class Room implements Comparable<Room> {
      * @see java.util.Collections#unmodifiableSet(Set)
      */
     public Set<Weapon> getWeaponsWonUponCompletion() {
-        return this.weaponsWonUponCompletion; // Wrong? DO I do it diff for sets?
+        return Collections.unmodifiableSet(this.weaponsWonUponCompletion);
     }
 
     /**
@@ -101,7 +108,7 @@ public class Room implements Comparable<Room> {
      * @see java.util.Collections#unmodifiableSet(Set)
      */
     public Map<Weapon, Integer> getAmmoWonUponCompletion() {
-        return this.ammoWonUponCompletion; // Wrong? DO I do it diff for Maps?
+        return Collections.unmodifiableMap(this.ammoWonUponCompletion);
     }
 
     /**
@@ -124,21 +131,20 @@ public class Room implements Comparable<Room> {
 
     /**
      * @return The SortedSet of all monsters in the room
-     * @see java.util.Collections#unmodifiableSet(Set) // Make collection? LOOK INTO THIS!
+     * @see java.util.Collections#unmodifiableSet(Set) // Make collection? LOOK INTO
+     *      THIS!
      */
     public SortedSet<Monster> getMonsters() {
-        SortedSet<Monster> noModifySet = Collections.unmodifiableSortedSet(this.monsters); //Does this add all monsters?
-        return noModifySet;
+        return Collections.unmodifiableSortedSet(this.monsters); // Does this add all monsters?
     }
 
     /**
      * @return the set of monsters in this room that are alive
      */
     public SortedSet<Monster> getLiveMonsters() {
-        //Do I do a check for health or is dead method?
-        SortedSet<Monster> liveMonsters = new TreeSet<>(); // NECCESARY?
+        SortedSet<Monster> liveMonsters = new TreeSet<>();
         for (Monster mon : getMonsters()) {
-            if (getMonsters().first().isDead() == false) {
+            if (!mon.isDead()) {
                 liveMonsters.add(mon);
             }
         }
@@ -151,24 +157,32 @@ public class Room implements Comparable<Room> {
      * playerHealthLostPerExposure of all the monsters in the room
      * 
      * @return the amount of health lost
-     * @see MonsterType#playerHealthLostPerExposure
+     * @see MonsterType#playerHealthLostPerExposure - canKill only calculates how
+     *      much health the player would lose if he kills the monster, but the
+     *      player doesn't actually lose health until he kills a monster. This is
+     *      why in the comments at @468 we said to make sure to reset th eplayer
+     *      health in the protected canKill method. - no health is lost from just
+     *      walking into a room. Think of it this way: you don't get hurt from just
+     *      peeking into a room, rather you get huer when you actualyl fight a
+     *      monster.
      */
     public int getPlayerHealthLostPerEncounter() {
         int healthLost = 0;
         for (Monster mon : getLiveMonsters()) {
-            mon.getMonsterType().playerHealthLostPerExposure);
+            healthLost += mon.getMonsterType().playerHealthLostPerExposure;
         }
+        return healthLost;
     }
 
     /**
      * @return the set of monsters in this room that are dead
      */
-    public SortedSet<Monster> getDeadMonsters() {
-        for(Monster mon : getMonsters()) {
-            if (mon.isDead()) {
-                deadMonsters.add(mon);
-            }
-        }
-        return deadMonsters;
+    public SortedSet<Monster> getDeadMonsters() { // where do we keep dead monsters?
+        /*
+         * SortedSet<Monster> deadMonsters = new TreeSet<>(); for (Monster mon :
+         * getMonsters()) { if (mon.isDead()) { deadMonsters.add(mon); } } return
+         * killedMonsters;
+         */
+        return killedMonsters;
     }
 }
