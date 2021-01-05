@@ -1,4 +1,43 @@
+GameBot constr player size: 1
 Test Game named Single Player Success now being played
+GameBot constr player size: 1
 Test Game named Single Player Failure now being played
+GameBot constr player size: 2
 Test Game named Multi-Player Success now being played
+GameBot constr player size: 2
 Test Game named Multi-Player Failure now being played
+GameBot constr player size: 1
+GameBot constr player size: 1
+GameBot constr player size: 1
+GameBot constr player size: 4
+player size: 1
+player size: 2
+player size: 3
+player size: 4
+bot created
+GameBot constr player size: 4
+edu.yu.cs.intro.doomGame.Player@de3
+edu.yu.cs.intro.doomGame.Player@de1
+edu.yu.cs.intro.doomGame.Player@de0
+edu.yu.cs.intro.doomGame.Player@de2
+edu.yu.cs.intro.doomGame.Player@de3
+edu.yu.cs.intro.doomGame.Player@de1
+edu.yu.cs.intro.doomGame.Player@de0
+edu.yu.cs.intro.doomGame.Player@de2
+edu.yu.cs.intro.doomGame.Player@de3
+edu.yu.cs.intro.doomGame.Player@de1
+edu.yu.cs.intro.doomGame.Player@de0
+edu.yu.cs.intro.doomGame.Player@de2
+armed size: 1
+armed contains p4: false
+edu.yu.cs.intro.doomGame.Player@de3
+edu.yu.cs.intro.doomGame.Player@de1
+edu.yu.cs.intro.doomGame.Player@de0
+edu.yu.cs.intro.doomGame.Player@de2
+edu.yu.cs.intro.doomGame.Player@de3
+edu.yu.cs.intro.doomGame.Player@de1
+edu.yu.cs.intro.doomGame.Player@de0
+edu.yu.cs.intro.doomGame.Player@de2
+proctector size: 2
+protector does not contains spectre:false
+protector does not contains baronfalse

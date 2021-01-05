@@ -211,6 +211,9 @@ public class Assignment9Tests {
                     "GameBot.getAllProtectorsInRoom returned at least one protector for a monster that had none");
         }
         protectors = GameBot.getAllProtectorsInRoom(demon, fearsome);
+        System.out.println("proctector size: " + protectors.size());
+        System.out.println("protector does not contains spectre:" + !protectors.contains(spectre));
+        System.out.println("protector does not contains baron" + !protectors.contains(baron));
         if (protectors.size() != 2 || !protectors.contains(spectre) || !protectors.contains(baron)) {
             throw new IncorrectBehaviorException(
                     "GameBot.getAllProtectorsInRoom did not return the two protectors of the demon");
@@ -239,11 +242,17 @@ public class Assignment9Tests {
         p4.addAmmunition(Weapon.CHAINSAW, 12);
         TreeSet<Player> players = new TreeSet<>();
         players.add(p1);
+        System.out.println("player size: " + players.size());
         players.add(p2);
+        System.out.println("player size: " + players.size());
         players.add(p3);
+        System.out.println("player size: " + players.size());
         players.add(p4);
+        System.out.println("player size: " + players.size());
         TreeSet<Room> rooms = new TreeSet<>();
         rooms.add(createEasyImpsRoom());
+        System.out.println("bot created");
+
         GameBot bot = new GameBot(rooms, players);
         // one player out of two with the given weapon has enough ammo
         Set<Player> armed = bot.getLivePlayersWithWeaponAndAmmunition(Weapon.PISTOL, 19);
@@ -259,6 +268,9 @@ public class Assignment9Tests {
         }
         // one player with the weapon & ammo
         armed = bot.getLivePlayersWithWeaponAndAmmunition(Weapon.CHAINSAW, 17);
+        System.out.println("armed size: " + armed.size());
+        System.out.print("armed contains p4: ");
+        System.out.println(!armed.contains(p4));
         if (armed.size() != 1 || !armed.contains(p4)) {
             throw new IncorrectBehaviorException(
                     "bot.getLivePlayersWithWeaponAndAmmunition did not return the expected players (p4) CUSTOM INFO:  "

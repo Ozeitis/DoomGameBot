@@ -174,7 +174,7 @@ public class Player implements Comparable<Player> {
             if (thisWeapon.ordinal() > otherWeapon.ordinal()) {
                 return 1;
             }
-            if (otherWeapon.ordinal() < thisWeapon.ordinal()) {
+            if (thisWeapon.ordinal() < otherWeapon.ordinal()) {
                 return -1;
             }
         }
@@ -210,15 +210,7 @@ public class Player implements Comparable<Player> {
     public boolean equals(Object o) { // correct?
         if (o == this)
             return true;
-        if (o == null) {
-            return false;
-        }
-        if (o instanceof Player) {
-            Player other = (Player) o;
-            if (this.name == other.getName()) {
-                return true;
-            }
-        }
+
         return false;
     }
 
@@ -227,6 +219,6 @@ public class Player implements Comparable<Player> {
      */
     @Override
     public int hashCode() {
-        return Objects.hash(this.name); // Correct? toInt()?
+        return Objects.hash(this.name);
     }
 }

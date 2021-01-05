@@ -22,6 +22,7 @@ public class GameBot {
     public GameBot(SortedSet<Room> rooms, SortedSet<Player> players) {
         this.rooms = rooms;
         this.players = players;
+        System.out.println("GameBot constr player size: " + players.size());
     }
 
     /**
@@ -125,10 +126,12 @@ public class GameBot {
 
         // first via a recursive call to killMonster on each one.
         for (Monster mon : protectors) {
-            room.monsterKilled(mon);
+            killMonster(player, room, mon);
         }
         // Reduce the player's health by the amount given by
         // room.getPlayerHealthLostPerEncounter().
+        player.changeAmmunitionRoundsForWeapon(monsterToKill.getMonsterType().weaponNeededToKill,
+                monsterToKill.getMonsterType().ammunitionCountNeededToKill);
         player.changeHealth(room.getPlayerHealthLostPerEncounter());
         // DO I REMOVE AMMO!?!??!?!?!??!?!?!?!
 
@@ -184,6 +187,7 @@ public class GameBot {
     protected SortedSet<Player> getLivePlayersWithWeaponAndAmmunition(Weapon weapon, int ammunition) {
         SortedSet<Player> playersWithWandA = new TreeSet<>();
         for (Player p : getLivePlayers()) {
+            System.out.println(p);
             if (p.hasWeapon(weapon) && p.getAmmunitionRoundsForWeapon(weapon) >= ammunition) {
                 playersWithWandA.add(p);
             }
@@ -213,8 +217,8 @@ public class GameBot {
         for (Monster mon : room.getLiveMonsters()) {
             if (monster.getProtectedBy().ordinal() == mon.getMonsterType().ordinal()) {
                 protectors.add(mon);
-                if (mon.getProtectedBy() != null) {
-                    getAllProtectorsInRoom(mon, room);
+                for (Monster mon2 : getAllProtectorsInRoom(mon, room)) {
+                    protectors.add(mon2);
                 }
             }
         }
