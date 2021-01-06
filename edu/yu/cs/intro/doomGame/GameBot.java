@@ -22,7 +22,6 @@ public class GameBot {
     public GameBot(SortedSet<Room> rooms, SortedSet<Player> players) {
         this.rooms = rooms;
         this.players = players;
-        System.out.println("GameBot constr player size: " + players.size());
     }
 
     /**
@@ -44,14 +43,33 @@ public class GameBot {
      * @return true if all rooms were completed, false if not
      */
     public boolean play() {
-        for (int i = 0; i < 10; i++) {
-            passThroughRooms();
-        }
-        if (getCompletedRooms().contains(getAllRooms().last())) {
-            return true;
-        }
-        return false;
+        Map<Room, Integer> roomToInitDL = new HashMap<>();
 
+        for (Room r : getAllRooms()) {
+            roomToInitDL.put(r, r.getDangerLevel());
+        }
+
+        while (!getIncompletedRooms().isEmpty()) {
+            passThroughRooms();
+            if (!updateroomToInitDL(roomToInitDL)) {
+                return false;
+            }
+        }
+
+        return true;
+    }
+
+    private boolean updateroomToInitDL(Map<Room, Integer> roomToInitDL) {
+        boolean updated = false;
+
+        for (Room r : roomToInitDL.keySet()) {
+            if (r.getDangerLevel() != roomToInitDL.get(r)) {
+                roomToInitDL.put(r, r.getDangerLevel());
+                updated = true;
+            }
+        }
+
+        return updated;
     }
 
     /**
@@ -65,7 +83,9 @@ public class GameBot {
         for (Player p : getLivePlayers()) {
             for (Room r : getAllRooms()) { // What about uncopmplteed rooms?
                 for (Monster mon : r.getLiveMonsters()) {
-                    if (canKill(p, mon, r)) {
+                    System.out.println("passThroughRooms mon: " + mon.getMonsterType());
+                    System.out.println("mon is alive: " + r.getLiveMonsters().contains(mon));
+                    if (r.getLiveMonsters().contains(mon) && canKill(p, mon, r)) {
                         killMonster(p, r, mon);
                     }
                 }
@@ -131,30 +151,37 @@ public class GameBot {
         // Reduce the player's health by the amount given by
         // room.getPlayerHealthLostPerEncounter().
         player.changeAmmunitionRoundsForWeapon(monsterToKill.getMonsterType().weaponNeededToKill,
-                monsterToKill.getMonsterType().ammunitionCountNeededToKill);
-        player.changeHealth(room.getPlayerHealthLostPerEncounter());
+                (monsterToKill.getMonsterType().ammunitionCountNeededToKill * -1)); // Makes it negative number?
+
+        player.changeHealth((room.getPlayerHealthLostPerEncounter() * -1));
         // DO I REMOVE AMMO!?!??!?!?!??!?!?!?!
 
         // Attack (and thus kill) the monster with the kind of weapon, and amount of
         // ammunition, needed to kill it.
-        room.monsterKilled(monsterToKill);
+        monsterToKill.attack(monsterToKill.getMonsterType().weaponNeededToKill,
+                monsterToKill.getMonsterType().ammunitionCountNeededToKill);
     }
 
     /**
      * @return a set of all the rooms that have been completed
      */
     public Set<Room> getCompletedRooms() {
-        return compRooms; // This feels wrong
+        /*
+         * Set<Room> completedRooms = new HashSet<>(); for (Room r : getAllRooms()) { if
+         * (r.getLiveMonsters().isEmpty()) { completedRooms.add(r); } } return
+         * completedRooms;
+         */
+        return compRooms;
     }
 
-    public SortedSet<Room> getNonCompletedRooms() {
-        SortedSet<Room> nonCompleted = new TreeSet<>();
+    private SortedSet<Room> getIncompletedRooms() {
+        SortedSet<Room> incomplete = new TreeSet<>();
         for (Room r : getAllRooms()) {
             if (!r.getLiveMonsters().isEmpty()) {
-                nonCompleted.add(r);
+                incomplete.add(r);
             }
         }
-        return nonCompleted;
+        return incomplete;
     }
 
     /**
@@ -187,7 +214,6 @@ public class GameBot {
     protected SortedSet<Player> getLivePlayersWithWeaponAndAmmunition(Weapon weapon, int ammunition) {
         SortedSet<Player> playersWithWandA = new TreeSet<>();
         for (Player p : getLivePlayers()) {
-            System.out.println(p);
             if (p.hasWeapon(weapon) && p.getAmmunitionRoundsForWeapon(weapon) >= ammunition) {
                 playersWithWandA.add(p);
             }
@@ -217,9 +243,7 @@ public class GameBot {
         for (Monster mon : room.getLiveMonsters()) {
             if (monster.getProtectedBy().ordinal() == mon.getMonsterType().ordinal()) {
                 protectors.add(mon);
-                for (Monster mon2 : getAllProtectorsInRoom(mon, room)) {
-                    protectors.add(mon2);
-                }
+                getAllProtectorsInRoom(protectors, mon, room);
             }
         }
         return protectors;
@@ -241,26 +265,26 @@ public class GameBot {
         SortedMap<Weapon, Integer> roundsUsedPerWeapon = new TreeMap<>();
 
         if (!room.getLiveMonsters().contains(monster)) {
+            System.out.println("monster not alive: " + monster.getMonsterType());
             throw new IllegalArgumentException();
         }
 
         // Going into the room exposes the player to all the monsters in the room. If
         // the player's health is
         // not > room.getPlayerHealthLostPerEncounter(), you can return immediately.
-        if (player.getHealth() < room.getPlayerHealthLostPerEncounter()) {
+        if (playerHealth <= room.getPlayerHealthLostPerEncounter()) {
             return false;
         }
 
         // Call the private canKill method, to determine if this player can kill this
         // monster.
-        if (canKill(player, monster, room, roundsUsedPerWeapon, alreadyMarkedByCanKill)) {
-            player.setHealth(playerHealth);
-            return true;
-        }
-        player.setHealth(playerHealth);
-        return false;
+        boolean canKill = canKill(player, monster, room, roundsUsedPerWeapon, alreadyMarkedByCanKill);
+
         // Before returning from this method, reset the player's health to what it was
         // before you called the private canKill
+        player.setHealth(playerHealth);
+
+        return canKill;
     }
 
     /**
@@ -274,78 +298,77 @@ public class GameBot {
     private static boolean canKill(Player player, Monster monster, Room room,
             SortedMap<Weapon, Integer> roundsUsedPerWeapon, Set<Monster> alreadyMarkedByCanKill) {
 
-        // Remove all the monsters already marked / looked at by this series of
-        // recursive calls to canKill from the set of liveMonsters
-        alreadyMarkedByCanKill.clear();
-
-        // in the room before you check if the monster is alive and in the room. Be sure
-        // to NOT alter the actual set of live monsters in your Room object!
-        // Check if monster is in the room and alive.
         if (!room.getLiveMonsters().contains(monster)) {
+            System.out.println("monster not alive (inside private canKill): " + monster.getMonsterType());
             throw new IllegalArgumentException();
         }
 
-        // Check what weapon is needed to kill the monster, see if player has it
-        if (!player.hasWeapon(monster.getMonsterType().weaponNeededToKill)) { // CHECK IF WEAPON IS GREATER THEN
-            return false;
-        }
-
-        // Check what amount of ammunition is needed to kill the monster, and
-        // see if player has it after we subtract from his total ammunition the number
-        // stored in roundsUsedPerWeapon for the given weapon, if any.
-        player.changeAmmunitionRoundsForWeapon(monster.getMonsterType().weaponNeededToKill,
-                roundsUsedPerWeapon.get(monster.getMonsterType().weaponNeededToKill));
-        if (player.getAmmunitionRoundsForWeapon(
-                monster.getMonsterType().weaponNeededToKill) < monster.getMonsterType().ammunitionCountNeededToKill) {
-            return false;
-        } else {
-            roundsUsedPerWeapon.put(monster.getMonsterType().weaponNeededToKill,
-                    monster.getMonsterType().ammunitionCountNeededToKill);
-        }
-
-        // Add up the playerHealthLostPerExposure of all the live monsters, and see if
-        // when that is subtracted from the player if his health is still > 0. If not,
-        // return false.
-        if (player.getHealth() - room.getPlayerHealthLostPerEncounter() <= 0) {
-            return false;
-        } else {
-            // If health would still be > 0, subtract it from the player's health, add this
-            // monster to the alreadyMarkedByCanKill set, and proceed to make recursive
-            // calls to see if he can kill the protectors.
-            player.changeHealth(player.getHealth() - room.getPlayerHealthLostPerEncounter());
-            alreadyMarkedByCanKill.add(monster);
-            if (!getAllProtectorsInRoom(monster, room).isEmpty()) {
-                for (Monster mon : getAllProtectorsInRoom(monster, room)) {
-                    canKill(player, mon, room);
-                }
-            } else {
-                canKill(player, monster, room);
-            }
-            alreadyMarkedByCanKill.add(monster);
-            return true;
-        }
         // Check what weapon is needed to kill the monster, see if player has it. If
         // not, return false.
+        if (!player.hasWeapon(monster.getMonsterType().weaponNeededToKill)) {
+            /* TODO -- CHECK IF WEAPON IS GREATER THEN */
+            /* TODO -- REFUND PLAYER AMMO */
+            System.out.println("player does not have correct weapon, returing false");
+            return false;
+        }
         // Check what protects the monster. If the monster is protected, the player can
         // only kill this monster if it can kill its protectors as well.
         // Make recursive calls to canKill to see if player can kill its protectors.
         // Be sure to remove all members of alreadyMarkedByCanKill from the set of
         // protectors before you recursively call canKill on the protectors.
+        if (!getAllProtectorsInRoom(monster, room).isEmpty()) {
+            for (Monster mon : getAllProtectorsInRoom(monster, room)) {
+                System.out.println("monster type: " + monster.getMonsterType());
+                System.out.println("protector type: " + mon.getMonsterType());
+
+                if (alreadyMarkedByCanKill.contains(mon)) {
+                    continue;
+                }
+
+                if (!canKill(player, mon, room, roundsUsedPerWeapon, alreadyMarkedByCanKill)) {
+                    System.out.println("cannot kill protectors, returing false");
+                    return false;
+                }
+            }
+        }
         // If all the recursive calls to canKill on all the protectors returned true:
         // Check what amount of ammunition is needed to kill the monster, and see if
         // player has it after we subtract
         // from his total ammunition the number stored in roundsUsedPerWeapon for the
         // given weapon, if any.
+        System.out.println("weapon being used: " + monster.getMonsterType().weaponNeededToKill);
+        System.out.println("amount of ammo player has: "
+                + player.getAmmunitionRoundsForWeapon(monster.getMonsterType().weaponNeededToKill));
+        System.out.println("ammo needed to kill this monster: " + monster.getMonsterType().ammunitionCountNeededToKill);
+        System.out.println("monster type: " + monster.getMonsterType());
+        if (player.getAmmunitionRoundsForWeapon(
+                monster.getMonsterType().weaponNeededToKill) < monster.getMonsterType().ammunitionCountNeededToKill) {
+            System.out.println("player does not have enough ammo, returing false");
+            return false;
+        }
+
+        player.changeAmmunitionRoundsForWeapon(monster.getMonsterType().weaponNeededToKill,
+                monster.getMonsterType().ammunitionCountNeededToKill * -1);
+
         // add how much ammunition will be used up to kill this monster to
         // roundsUsedPerWeapon
+        roundsUsedPerWeapon.put(monster.getMonsterType().weaponNeededToKill,
+                monster.getMonsterType().ammunitionCountNeededToKill);
+
         // Add up the playerHealthLostPerExposure of all the live monsters, and see if
         // when that is subtracted from the player if his health is still > 0. If not,
         // return false.
+        if (player.getHealth() - room.getPlayerHealthLostPerEncounter() <= 0) {
+            System.out.println("player does not have enough health, returing false");
+            return false;
+        }
+
         // If health is still > 0, subtract the above total from the player's health
-        // (Note that in the protected canKill method, you must reset the player's
-        // health to what it was before canKill was called before you return from that
-        // protected method)
+        player.changeHealth(player.getHealth() - room.getPlayerHealthLostPerEncounter());
+
         // add this monster to alreadyMarkedByCanKill, and return true.
+        alreadyMarkedByCanKill.add(monster);
+        return true;
     }
 
 }

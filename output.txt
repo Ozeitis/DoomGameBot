@@ -1,43 +1,650 @@
-GameBot constr player size: 1
 Test Game named Single Player Success now being played
-GameBot constr player size: 1
+passThroughRooms mon: IMP
+mon is alive: true
+weapon being used: FIST
+amount of ammo player has: 2147483647
+ammo needed to kill this monster: 1
+monster type: IMP
+passThroughRooms mon: IMP
+mon is alive: true
+weapon being used: FIST
+amount of ammo player has: 2147483645
+ammo needed to kill this monster: 1
+monster type: IMP
+passThroughRooms mon: IMP
+mon is alive: true
+weapon being used: FIST
+amount of ammo player has: 2147483643
+ammo needed to kill this monster: 1
+monster type: IMP
+passThroughRooms mon: DEMON
+mon is alive: true
+weapon being used: CHAINSAW
+amount of ammo player has: 7
+ammo needed to kill this monster: 1
+monster type: DEMON
+passThroughRooms mon: DEMON
+mon is alive: true
+weapon being used: CHAINSAW
+amount of ammo player has: 5
+ammo needed to kill this monster: 1
+monster type: DEMON
+passThroughRooms mon: IMP
+mon is alive: true
+weapon being used: FIST
+amount of ammo player has: 2147483641
+ammo needed to kill this monster: 1
+monster type: IMP
+passThroughRooms mon: IMP
+mon is alive: true
+weapon being used: FIST
+amount of ammo player has: 2147483639
+ammo needed to kill this monster: 1
+monster type: IMP
+passThroughRooms mon: IMP
+mon is alive: true
+weapon being used: FIST
+amount of ammo player has: 2147483637
+ammo needed to kill this monster: 1
+monster type: IMP
+passThroughRooms mon: DEMON
+mon is alive: true
+weapon being used: CHAINSAW
+amount of ammo player has: 5
+ammo needed to kill this monster: 1
+monster type: DEMON
+passThroughRooms mon: IMP
+mon is alive: true
+weapon being used: FIST
+amount of ammo player has: 2147483635
+ammo needed to kill this monster: 1
+monster type: IMP
+passThroughRooms mon: DEMON
+mon is alive: true
+weapon being used: CHAINSAW
+amount of ammo player has: 3
+ammo needed to kill this monster: 1
+monster type: DEMON
+passThroughRooms mon: SPECTRE
+mon is alive: true
+weapon being used: PISTOL
+amount of ammo player has: 17
+ammo needed to kill this monster: 6
+monster type: SPECTRE
+passThroughRooms mon: DEMON
+mon is alive: true
+weapon being used: CHAINSAW
+amount of ammo player has: 7
+ammo needed to kill this monster: 1
+monster type: DEMON
+passThroughRooms mon: DEMON
+mon is alive: true
+weapon being used: CHAINSAW
+amount of ammo player has: 5
+ammo needed to kill this monster: 1
+monster type: DEMON
+passThroughRooms mon: DEMON
+mon is alive: true
+weapon being used: CHAINSAW
+amount of ammo player has: 3
+ammo needed to kill this monster: 1
+monster type: DEMON
+passThroughRooms mon: DEMON
+mon is alive: true
+weapon being used: CHAINSAW
+amount of ammo player has: 1
+ammo needed to kill this monster: 1
+monster type: DEMON
+passThroughRooms mon: IMP
+mon is alive: true
+weapon being used: FIST
+amount of ammo player has: 2147483633
+ammo needed to kill this monster: 1
+monster type: IMP
+passThroughRooms mon: BARON_OF_HELL
+mon is alive: true
+monster type: BARON_OF_HELL
+protector type: SPECTRE
+weapon being used: PISTOL
+amount of ammo player has: 11
+ammo needed to kill this monster: 6
+monster type: SPECTRE
+weapon being used: SHOTGUN
+amount of ammo player has: 25
+ammo needed to kill this monster: 12
+monster type: BARON_OF_HELL
+passThroughRooms mon: DEMON
+mon is alive: true
+weapon being used: CHAINSAW
+amount of ammo player has: 0
+ammo needed to kill this monster: 1
+monster type: DEMON
+player does not have enough ammo, returing false
+passThroughRooms mon: SPECTRE
+mon is alive: false
+passThroughRooms mon: DEMON
+mon is alive: true
+weapon being used: CHAINSAW
+amount of ammo player has: 11
+ammo needed to kill this monster: 1
+monster type: DEMON
+**********************************************
+Room name: Easy Imps
+Room completed: true
+State of Monsters in Room:
+IMP: is dead - true
+IMP: is dead - true
+IMP: is dead - true
+**********************************************
+Room name: Double Demonic
+Room completed: true
+State of Monsters in Room:
+DEMON: is dead - true
+DEMON: is dead - true
+**********************************************
+Room name: I&D
+Room completed: true
+State of Monsters in Room:
+IMP: is dead - true
+IMP: is dead - true
+IMP: is dead - true
+DEMON: is dead - true
+**********************************************
+Room name: Triple Threat
+Room completed: true
+State of Monsters in Room:
+IMP: is dead - true
+DEMON: is dead - true
+SPECTRE: is dead - true
+**********************************************
+Room name: Demon Quad
+Room completed: true
+State of Monsters in Room:
+DEMON: is dead - true
+DEMON: is dead - true
+DEMON: is dead - true
+DEMON: is dead - true
+**********************************************
+Room name: Fearsome Foursome
+Room completed: true
+State of Monsters in Room:
+IMP: is dead - true
+DEMON: is dead - true
+SPECTRE: is dead - true
+BARON_OF_HELL: is dead - true
 Test Game named Single Player Failure now being played
-GameBot constr player size: 2
+passThroughRooms mon: IMP
+mon is alive: true
+weapon being used: FIST
+amount of ammo player has: 2147483647
+ammo needed to kill this monster: 1
+monster type: IMP
+passThroughRooms mon: IMP
+mon is alive: true
+weapon being used: FIST
+amount of ammo player has: 2147483645
+ammo needed to kill this monster: 1
+monster type: IMP
+passThroughRooms mon: IMP
+mon is alive: true
+weapon being used: FIST
+amount of ammo player has: 2147483643
+ammo needed to kill this monster: 1
+monster type: IMP
+passThroughRooms mon: DEMON
+mon is alive: true
+weapon being used: CHAINSAW
+amount of ammo player has: 7
+ammo needed to kill this monster: 1
+monster type: DEMON
+passThroughRooms mon: DEMON
+mon is alive: true
+weapon being used: CHAINSAW
+amount of ammo player has: 5
+ammo needed to kill this monster: 1
+monster type: DEMON
+passThroughRooms mon: IMP
+mon is alive: true
+weapon being used: FIST
+amount of ammo player has: 2147483641
+ammo needed to kill this monster: 1
+monster type: IMP
+passThroughRooms mon: BARON_OF_HELL
+mon is alive: true
+player does not have correct weapon, returing false
+passThroughRooms mon: DEMON
+mon is alive: true
+monster type: DEMON
+protector type: SPECTRE
+weapon being used: PISTOL
+amount of ammo player has: 11
+ammo needed to kill this monster: 6
+monster type: SPECTRE
+monster type: DEMON
+protector type: BARON_OF_HELL
+player does not have correct weapon, returing false
+cannot kill protectors, returing false
+passThroughRooms mon: SPECTRE
+mon is alive: true
+weapon being used: PISTOL
+amount of ammo player has: 5
+ammo needed to kill this monster: 6
+monster type: SPECTRE
+player does not have enough ammo, returing false
+passThroughRooms mon: BARON_OF_HELL
+mon is alive: true
+player does not have correct weapon, returing false
+passThroughRooms mon: DEMON
+mon is alive: true
+monster type: DEMON
+protector type: SPECTRE
+weapon being used: PISTOL
+amount of ammo player has: 11
+ammo needed to kill this monster: 6
+monster type: SPECTRE
+monster type: DEMON
+protector type: BARON_OF_HELL
+player does not have correct weapon, returing false
+cannot kill protectors, returing false
+passThroughRooms mon: SPECTRE
+mon is alive: true
+weapon being used: PISTOL
+amount of ammo player has: 5
+ammo needed to kill this monster: 6
+monster type: SPECTRE
+player does not have enough ammo, returing false
+**********************************************
+Room name: Easy Imps
+Room completed: true
+State of Monsters in Room:
+IMP: is dead - true
+IMP: is dead - true
+IMP: is dead - true
+**********************************************
+Room name: Double Demonic
+Room completed: true
+State of Monsters in Room:
+DEMON: is dead - true
+DEMON: is dead - true
+**********************************************
+Room name: Fearsome Foursome
+Room completed: false
+State of Monsters in Room:
+IMP: is dead - true
+DEMON: is dead - false
+SPECTRE: is dead - false
+BARON_OF_HELL: is dead - false
 Test Game named Multi-Player Success now being played
-GameBot constr player size: 2
+passThroughRooms mon: IMP
+mon is alive: true
+weapon being used: FIST
+amount of ammo player has: 2147483647
+ammo needed to kill this monster: 1
+monster type: IMP
+passThroughRooms mon: IMP
+mon is alive: true
+weapon being used: FIST
+amount of ammo player has: 2147483645
+ammo needed to kill this monster: 1
+monster type: IMP
+passThroughRooms mon: IMP
+mon is alive: true
+weapon being used: FIST
+amount of ammo player has: 2147483643
+ammo needed to kill this monster: 1
+monster type: IMP
+passThroughRooms mon: DEMON
+mon is alive: true
+weapon being used: CHAINSAW
+amount of ammo player has: 7
+ammo needed to kill this monster: 1
+monster type: DEMON
+passThroughRooms mon: DEMON
+mon is alive: true
+weapon being used: CHAINSAW
+amount of ammo player has: 5
+ammo needed to kill this monster: 1
+monster type: DEMON
+passThroughRooms mon: IMP
+mon is alive: true
+weapon being used: FIST
+amount of ammo player has: 2147483641
+ammo needed to kill this monster: 1
+monster type: IMP
+passThroughRooms mon: BARON_OF_HELL
+mon is alive: true
+passThroughRooms mon: DEMON
+mon is alive: true
+passThroughRooms mon: SPECTRE
+mon is alive: true
+passThroughRooms mon: BARON_OF_HELL
+mon is alive: true
+monster type: BARON_OF_HELL
+protector type: SPECTRE
+weapon being used: PISTOL
+amount of ammo player has: 18
+ammo needed to kill this monster: 6
+monster type: SPECTRE
+weapon being used: SHOTGUN
+amount of ammo player has: 18
+ammo needed to kill this monster: 12
+monster type: BARON_OF_HELL
+passThroughRooms mon: DEMON
+mon is alive: true
+weapon being used: CHAINSAW
+amount of ammo player has: 11
+ammo needed to kill this monster: 1
+monster type: DEMON
+passThroughRooms mon: SPECTRE
+mon is alive: false
+**********************************************
+Room name: Easy Imps
+Room completed: true
+State of Monsters in Room:
+IMP: is dead - true
+IMP: is dead - true
+IMP: is dead - true
+**********************************************
+Room name: Double Demonic
+Room completed: true
+State of Monsters in Room:
+DEMON: is dead - true
+DEMON: is dead - true
+**********************************************
+Room name: Fearsome Foursome
+Room completed: true
+State of Monsters in Room:
+IMP: is dead - true
+DEMON: is dead - true
+SPECTRE: is dead - true
+BARON_OF_HELL: is dead - true
 Test Game named Multi-Player Failure now being played
-GameBot constr player size: 1
-GameBot constr player size: 1
-GameBot constr player size: 1
-GameBot constr player size: 4
-player size: 1
-player size: 2
-player size: 3
-player size: 4
-bot created
-GameBot constr player size: 4
-edu.yu.cs.intro.doomGame.Player@de3
-edu.yu.cs.intro.doomGame.Player@de1
-edu.yu.cs.intro.doomGame.Player@de0
-edu.yu.cs.intro.doomGame.Player@de2
-edu.yu.cs.intro.doomGame.Player@de3
-edu.yu.cs.intro.doomGame.Player@de1
-edu.yu.cs.intro.doomGame.Player@de0
-edu.yu.cs.intro.doomGame.Player@de2
-edu.yu.cs.intro.doomGame.Player@de3
-edu.yu.cs.intro.doomGame.Player@de1
-edu.yu.cs.intro.doomGame.Player@de0
-edu.yu.cs.intro.doomGame.Player@de2
-armed size: 1
-armed contains p4: false
-edu.yu.cs.intro.doomGame.Player@de3
-edu.yu.cs.intro.doomGame.Player@de1
-edu.yu.cs.intro.doomGame.Player@de0
-edu.yu.cs.intro.doomGame.Player@de2
-edu.yu.cs.intro.doomGame.Player@de3
-edu.yu.cs.intro.doomGame.Player@de1
-edu.yu.cs.intro.doomGame.Player@de0
-edu.yu.cs.intro.doomGame.Player@de2
-proctector size: 2
-protector does not contains spectre:false
-protector does not contains baronfalse
+passThroughRooms mon: IMP
+mon is alive: true
+weapon being used: FIST
+amount of ammo player has: 2147483647
+ammo needed to kill this monster: 1
+monster type: IMP
+passThroughRooms mon: IMP
+mon is alive: true
+passThroughRooms mon: IMP
+mon is alive: true
+passThroughRooms mon: DEMON
+mon is alive: true
+passThroughRooms mon: DEMON
+mon is alive: true
+passThroughRooms mon: IMP
+mon is alive: true
+passThroughRooms mon: BARON_OF_HELL
+mon is alive: true
+passThroughRooms mon: DEMON
+mon is alive: true
+passThroughRooms mon: SPECTRE
+mon is alive: true
+passThroughRooms mon: IMP
+mon is alive: true
+weapon being used: FIST
+amount of ammo player has: 2147483647
+ammo needed to kill this monster: 1
+monster type: IMP
+passThroughRooms mon: IMP
+mon is alive: true
+weapon being used: FIST
+amount of ammo player has: 2147483645
+ammo needed to kill this monster: 1
+monster type: IMP
+passThroughRooms mon: DEMON
+mon is alive: true
+weapon being used: CHAINSAW
+amount of ammo player has: 8
+ammo needed to kill this monster: 1
+monster type: DEMON
+passThroughRooms mon: DEMON
+mon is alive: true
+weapon being used: CHAINSAW
+amount of ammo player has: 6
+ammo needed to kill this monster: 1
+monster type: DEMON
+passThroughRooms mon: IMP
+mon is alive: true
+weapon being used: FIST
+amount of ammo player has: 2147483643
+ammo needed to kill this monster: 1
+monster type: IMP
+passThroughRooms mon: BARON_OF_HELL
+mon is alive: true
+monster type: BARON_OF_HELL
+protector type: SPECTRE
+weapon being used: PISTOL
+amount of ammo player has: 17
+ammo needed to kill this monster: 6
+monster type: SPECTRE
+weapon being used: SHOTGUN
+amount of ammo player has: 5
+ammo needed to kill this monster: 12
+monster type: BARON_OF_HELL
+player does not have enough ammo, returing false
+passThroughRooms mon: DEMON
+mon is alive: true
+monster type: DEMON
+protector type: SPECTRE
+weapon being used: PISTOL
+amount of ammo player has: 11
+ammo needed to kill this monster: 6
+monster type: SPECTRE
+monster type: DEMON
+protector type: BARON_OF_HELL
+monster type: BARON_OF_HELL
+protector type: SPECTRE
+weapon being used: SHOTGUN
+amount of ammo player has: 5
+ammo needed to kill this monster: 12
+monster type: BARON_OF_HELL
+player does not have enough ammo, returing false
+cannot kill protectors, returing false
+passThroughRooms mon: SPECTRE
+mon is alive: true
+weapon being used: PISTOL
+amount of ammo player has: 5
+ammo needed to kill this monster: 6
+monster type: SPECTRE
+player does not have enough ammo, returing false
+passThroughRooms mon: BARON_OF_HELL
+mon is alive: true
+player does not have correct weapon, returing false
+passThroughRooms mon: DEMON
+mon is alive: true
+monster type: DEMON
+protector type: SPECTRE
+weapon being used: PISTOL
+amount of ammo player has: 11
+ammo needed to kill this monster: 6
+monster type: SPECTRE
+monster type: DEMON
+protector type: BARON_OF_HELL
+player does not have correct weapon, returing false
+cannot kill protectors, returing false
+passThroughRooms mon: SPECTRE
+mon is alive: true
+weapon being used: PISTOL
+amount of ammo player has: 5
+ammo needed to kill this monster: 6
+monster type: SPECTRE
+player does not have enough ammo, returing false
+passThroughRooms mon: BARON_OF_HELL
+mon is alive: true
+monster type: BARON_OF_HELL
+protector type: SPECTRE
+weapon being used: PISTOL
+amount of ammo player has: 11
+ammo needed to kill this monster: 6
+monster type: SPECTRE
+weapon being used: SHOTGUN
+amount of ammo player has: 5
+ammo needed to kill this monster: 12
+monster type: BARON_OF_HELL
+player does not have enough ammo, returing false
+passThroughRooms mon: DEMON
+mon is alive: true
+monster type: DEMON
+protector type: SPECTRE
+weapon being used: PISTOL
+amount of ammo player has: 5
+ammo needed to kill this monster: 6
+monster type: SPECTRE
+player does not have enough ammo, returing false
+cannot kill protectors, returing false
+passThroughRooms mon: SPECTRE
+mon is alive: true
+weapon being used: PISTOL
+amount of ammo player has: 5
+ammo needed to kill this monster: 6
+monster type: SPECTRE
+player does not have enough ammo, returing false
+**********************************************
+Room name: Easy Imps
+Room completed: true
+State of Monsters in Room:
+IMP: is dead - true
+IMP: is dead - true
+IMP: is dead - true
+**********************************************
+Room name: Double Demonic
+Room completed: true
+State of Monsters in Room:
+DEMON: is dead - true
+DEMON: is dead - true
+**********************************************
+Room name: Fearsome Foursome
+Room completed: false
+State of Monsters in Room:
+IMP: is dead - true
+DEMON: is dead - false
+SPECTRE: is dead - false
+BARON_OF_HELL: is dead - false
+passThroughRooms mon: IMP
+mon is alive: true
+weapon being used: FIST
+amount of ammo player has: 2147483647
+ammo needed to kill this monster: 1
+monster type: IMP
+passThroughRooms mon: IMP
+mon is alive: true
+weapon being used: FIST
+amount of ammo player has: 2147483645
+ammo needed to kill this monster: 1
+monster type: IMP
+passThroughRooms mon: IMP
+mon is alive: true
+weapon being used: FIST
+amount of ammo player has: 2147483643
+ammo needed to kill this monster: 1
+monster type: IMP
+passThroughRooms mon: DEMON
+mon is alive: true
+weapon being used: CHAINSAW
+amount of ammo player has: 7
+ammo needed to kill this monster: 1
+monster type: DEMON
+passThroughRooms mon: DEMON
+mon is alive: true
+weapon being used: CHAINSAW
+amount of ammo player has: 5
+ammo needed to kill this monster: 1
+monster type: DEMON
+passThroughRooms mon: IMP
+mon is alive: true
+weapon being used: FIST
+amount of ammo player has: 2147483641
+ammo needed to kill this monster: 1
+monster type: IMP
+passThroughRooms mon: BARON_OF_HELL
+mon is alive: true
+player does not have correct weapon, returing false
+passThroughRooms mon: DEMON
+mon is alive: true
+monster type: DEMON
+protector type: SPECTRE
+weapon being used: PISTOL
+amount of ammo player has: 11
+ammo needed to kill this monster: 6
+monster type: SPECTRE
+monster type: DEMON
+protector type: BARON_OF_HELL
+player does not have correct weapon, returing false
+cannot kill protectors, returing false
+passThroughRooms mon: SPECTRE
+mon is alive: true
+weapon being used: PISTOL
+amount of ammo player has: 5
+ammo needed to kill this monster: 6
+monster type: SPECTRE
+player does not have enough ammo, returing false
+passThroughRooms mon: BARON_OF_HELL
+mon is alive: true
+player does not have correct weapon, returing false
+passThroughRooms mon: DEMON
+mon is alive: true
+monster type: DEMON
+protector type: SPECTRE
+weapon being used: PISTOL
+amount of ammo player has: 11
+ammo needed to kill this monster: 6
+monster type: SPECTRE
+monster type: DEMON
+protector type: BARON_OF_HELL
+player does not have correct weapon, returing false
+cannot kill protectors, returing false
+passThroughRooms mon: SPECTRE
+mon is alive: true
+weapon being used: PISTOL
+amount of ammo player has: 5
+ammo needed to kill this monster: 6
+monster type: SPECTRE
+player does not have enough ammo, returing false
+weapon being used: FIST
+amount of ammo player has: 2147483647
+ammo needed to kill this monster: 1
+monster type: IMP
+monster type: DEMON
+protector type: SPECTRE
+player does not have correct weapon, returing false
+cannot kill protectors, returing false
+monster type: DEMON
+protector type: SPECTRE
+player does not have correct weapon, returing false
+cannot kill protectors, returing false
+monster type: DEMON
+protector type: SPECTRE
+weapon being used: PISTOL
+amount of ammo player has: 5
+ammo needed to kill this monster: 6
+monster type: SPECTRE
+player does not have enough ammo, returing false
+cannot kill protectors, returing false
+monster type: DEMON
+protector type: SPECTRE
+weapon being used: PISTOL
+amount of ammo player has: 6
+ammo needed to kill this monster: 6
+monster type: SPECTRE
+monster type: DEMON
+protector type: BARON_OF_HELL
+monster type: BARON_OF_HELL
+protector type: SPECTRE
+weapon being used: SHOTGUN
+amount of ammo player has: 12
+ammo needed to kill this monster: 12
+monster type: BARON_OF_HELL
+weapon being used: CHAINSAW
+amount of ammo player has: 5
+ammo needed to kill this monster: 1
+monster type: DEMON
+monster type: DEMON
+protector type: SPECTRE
+weapon being used: PISTOL
+amount of ammo player has: 0
+ammo needed to kill this monster: 6
+monster type: SPECTRE
+player does not have enough ammo, returing false
+cannot kill protectors, returing false

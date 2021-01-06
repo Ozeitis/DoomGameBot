@@ -1,4 +1,4 @@
-YOUR SCORE: 336 out of 564
+YOUR SCORE: 564 out of 564
 
 TEST NAME: testAttackWithInsufficientWeapon
 TEST DESCRIPTION: Monster: does monster.attack throw an IllegalArgumentException when attacked with an insufficient weapon?
@@ -108,86 +108,22 @@ TEST POINT VALUE: 12
 TEST NAME: testSinglePlayerSuccessGame
 TEST DESCRIPTION: GameBot: Play Single Player Success
 TEST POINT VALUE: 36
-null
-java.lang.NullPointerException
-	at edu.yu.cs.intro.doomGame.GameBot.canKill(GameBot.java:297)
-	at edu.yu.cs.intro.doomGame.GameBot.canKill(GameBot.java:256)
-	at edu.yu.cs.intro.doomGame.GameBot.passThroughRooms(GameBot.java:68)
-	at edu.yu.cs.intro.doomGame.GameBot.play(GameBot.java:48)
-	at edu.yu.cs.intro.doomGame.Assignment9Tests.playAndReport(Assignment9Tests.java:878)
-	at edu.yu.cs.intro.doomGame.Assignment9Tests.testSinglePlayerSuccessGame(Assignment9Tests.java:454)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
-	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
-	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
-	at edu.yu.cs.intro.TestHelper.runMethod(TestHelper.java:194)
-	at edu.yu.cs.intro.doomGame.Assignment9Tests.runTest(Assignment9Tests.java:68)
-	at edu.yu.cs.intro.doomGame.Assignment9Tests.runTests(Assignment9Tests.java:122)
-	at edu.yu.cs.intro.doomGame.Assignment9Tests.main(Assignment9Tests.java:27)
-+++++TEST FAILED+++++
++++++TEST PASSED+++++
 
 TEST NAME: testSinglePlayerFailureGame
 TEST DESCRIPTION: GameBot: Play Single Player Failure
 TEST POINT VALUE: 36
-null
-java.lang.NullPointerException
-	at edu.yu.cs.intro.doomGame.GameBot.canKill(GameBot.java:297)
-	at edu.yu.cs.intro.doomGame.GameBot.canKill(GameBot.java:256)
-	at edu.yu.cs.intro.doomGame.GameBot.passThroughRooms(GameBot.java:68)
-	at edu.yu.cs.intro.doomGame.GameBot.play(GameBot.java:48)
-	at edu.yu.cs.intro.doomGame.Assignment9Tests.playAndReport(Assignment9Tests.java:878)
-	at edu.yu.cs.intro.doomGame.Assignment9Tests.testSinglePlayerFailureGame(Assignment9Tests.java:445)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
-	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
-	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
-	at edu.yu.cs.intro.TestHelper.runMethod(TestHelper.java:194)
-	at edu.yu.cs.intro.doomGame.Assignment9Tests.runTest(Assignment9Tests.java:68)
-	at edu.yu.cs.intro.doomGame.Assignment9Tests.runTests(Assignment9Tests.java:123)
-	at edu.yu.cs.intro.doomGame.Assignment9Tests.main(Assignment9Tests.java:27)
-+++++TEST FAILED+++++
++++++TEST PASSED+++++
 
 TEST NAME: testMultiPlayerSuccessGame
 TEST DESCRIPTION: GameBot: Play Multi-Player Success
 TEST POINT VALUE: 36
-null
-java.lang.NullPointerException
-	at edu.yu.cs.intro.doomGame.GameBot.canKill(GameBot.java:297)
-	at edu.yu.cs.intro.doomGame.GameBot.canKill(GameBot.java:256)
-	at edu.yu.cs.intro.doomGame.GameBot.passThroughRooms(GameBot.java:68)
-	at edu.yu.cs.intro.doomGame.GameBot.play(GameBot.java:48)
-	at edu.yu.cs.intro.doomGame.Assignment9Tests.playAndReport(Assignment9Tests.java:878)
-	at edu.yu.cs.intro.doomGame.Assignment9Tests.testMultiPlayerSuccessGame(Assignment9Tests.java:436)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
-	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
-	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
-	at edu.yu.cs.intro.TestHelper.runMethod(TestHelper.java:194)
-	at edu.yu.cs.intro.doomGame.Assignment9Tests.runTest(Assignment9Tests.java:68)
-	at edu.yu.cs.intro.doomGame.Assignment9Tests.runTests(Assignment9Tests.java:124)
-	at edu.yu.cs.intro.doomGame.Assignment9Tests.main(Assignment9Tests.java:27)
-+++++TEST FAILED+++++
++++++TEST PASSED+++++
 
 TEST NAME: testMultiPlayerFailureGame
 TEST DESCRIPTION: GameBot: Play Multi-Player Failure
 TEST POINT VALUE: 36
-null
-java.lang.NullPointerException
-	at edu.yu.cs.intro.doomGame.GameBot.canKill(GameBot.java:297)
-	at edu.yu.cs.intro.doomGame.GameBot.canKill(GameBot.java:256)
-	at edu.yu.cs.intro.doomGame.GameBot.passThroughRooms(GameBot.java:68)
-	at edu.yu.cs.intro.doomGame.GameBot.play(GameBot.java:48)
-	at edu.yu.cs.intro.doomGame.Assignment9Tests.playAndReport(Assignment9Tests.java:878)
-	at edu.yu.cs.intro.doomGame.Assignment9Tests.testMultiPlayerFailureGame(Assignment9Tests.java:427)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
-	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
-	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
-	at edu.yu.cs.intro.TestHelper.runMethod(TestHelper.java:194)
-	at edu.yu.cs.intro.doomGame.Assignment9Tests.runTest(Assignment9Tests.java:68)
-	at edu.yu.cs.intro.doomGame.Assignment9Tests.runTests(Assignment9Tests.java:125)
-	at edu.yu.cs.intro.doomGame.Assignment9Tests.main(Assignment9Tests.java:27)
-+++++TEST FAILED+++++
++++++TEST PASSED+++++
 
 TEST NAME: testReapCompletionRewards
 TEST DESCRIPTION: GameBot: Check that player reaps the rewards of completing a room: GameBot.reapCompletionRewards()
@@ -197,39 +133,12 @@ TEST POINT VALUE: 36
 TEST NAME: testKillMonster
 TEST DESCRIPTION: GameBot: Check that killMonster kills the right set of monsters and results in the correct changes to the player
 TEST POINT VALUE: 36
-after killMonster was called on demon, baronOfHell should be dead as well
-edu.yu.cs.intro.doomGame.Assignment9Tests$IncorrectBehaviorException: after killMonster was called on demon, baronOfHell should be dead as well
-	at edu.yu.cs.intro.doomGame.Assignment9Tests.testKillMonster(Assignment9Tests.java:370)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
-	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
-	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
-	at edu.yu.cs.intro.TestHelper.runMethod(TestHelper.java:194)
-	at edu.yu.cs.intro.doomGame.Assignment9Tests.runTest(Assignment9Tests.java:68)
-	at edu.yu.cs.intro.doomGame.Assignment9Tests.runTests(Assignment9Tests.java:128)
-	at edu.yu.cs.intro.doomGame.Assignment9Tests.main(Assignment9Tests.java:27)
-+++++TEST FAILED+++++
++++++TEST PASSED+++++
 
 TEST NAME: testGetCompletedRooms
 TEST DESCRIPTION: GameBot: Check that Gamebot.getCompletedRooms() returns all completed rooms, and no other rooms
 TEST POINT VALUE: 12
-null
-java.lang.NullPointerException
-	at edu.yu.cs.intro.doomGame.GameBot.canKill(GameBot.java:297)
-	at edu.yu.cs.intro.doomGame.GameBot.canKill(GameBot.java:256)
-	at edu.yu.cs.intro.doomGame.GameBot.passThroughRooms(GameBot.java:68)
-	at edu.yu.cs.intro.doomGame.GameBot.play(GameBot.java:48)
-	at edu.yu.cs.intro.doomGame.Assignment9Tests.testGetCompletedRooms(Assignment9Tests.java:318)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
-	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
-	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
-	at edu.yu.cs.intro.TestHelper.runMethod(TestHelper.java:194)
-	at edu.yu.cs.intro.doomGame.Assignment9Tests.runTest(Assignment9Tests.java:68)
-	at edu.yu.cs.intro.doomGame.Assignment9Tests.runTest(Assignment9Tests.java:59)
-	at edu.yu.cs.intro.doomGame.Assignment9Tests.runTests(Assignment9Tests.java:130)
-	at edu.yu.cs.intro.doomGame.Assignment9Tests.main(Assignment9Tests.java:27)
-+++++TEST FAILED+++++
++++++TEST PASSED+++++
 
 TEST NAME: testGetLivePlayers
 TEST DESCRIPTION: GameBot: Check that Gamebot.getLivePlayers() returns all live players, and no other players
@@ -249,19 +158,6 @@ TEST POINT VALUE: 24
 TEST NAME: testCanKill
 TEST DESCRIPTION: GameBot: Check that Gamebot.canKill() responds correctly
 TEST POINT VALUE: 36
-null
-java.lang.NullPointerException
-	at edu.yu.cs.intro.doomGame.GameBot.canKill(GameBot.java:297)
-	at edu.yu.cs.intro.doomGame.GameBot.canKill(GameBot.java:256)
-	at edu.yu.cs.intro.doomGame.Assignment9Tests.testCanKill(Assignment9Tests.java:157)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
-	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
-	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
-	at edu.yu.cs.intro.TestHelper.runMethod(TestHelper.java:194)
-	at edu.yu.cs.intro.doomGame.Assignment9Tests.runTest(Assignment9Tests.java:68)
-	at edu.yu.cs.intro.doomGame.Assignment9Tests.runTests(Assignment9Tests.java:138)
-	at edu.yu.cs.intro.doomGame.Assignment9Tests.main(Assignment9Tests.java:27)
-+++++TEST FAILED+++++
++++++TEST PASSED+++++
 
 
