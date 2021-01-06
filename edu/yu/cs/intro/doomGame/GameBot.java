@@ -83,8 +83,6 @@ public class GameBot {
         for (Player p : getLivePlayers()) {
             for (Room r : getAllRooms()) { // What about uncopmplteed rooms?
                 for (Monster mon : r.getLiveMonsters()) {
-                    System.out.println("passThroughRooms mon: " + mon.getMonsterType());
-                    System.out.println("mon is alive: " + r.getLiveMonsters().contains(mon));
                     if (r.getLiveMonsters().contains(mon) && canKill(p, mon, r)) {
                         killMonster(p, r, mon);
                     }
@@ -265,7 +263,6 @@ public class GameBot {
         SortedMap<Weapon, Integer> roundsUsedPerWeapon = new TreeMap<>();
 
         if (!room.getLiveMonsters().contains(monster)) {
-            System.out.println("monster not alive: " + monster.getMonsterType());
             throw new IllegalArgumentException();
         }
 
@@ -299,7 +296,6 @@ public class GameBot {
             SortedMap<Weapon, Integer> roundsUsedPerWeapon, Set<Monster> alreadyMarkedByCanKill) {
 
         if (!room.getLiveMonsters().contains(monster)) {
-            System.out.println("monster not alive (inside private canKill): " + monster.getMonsterType());
             throw new IllegalArgumentException();
         }
 
@@ -308,7 +304,6 @@ public class GameBot {
         if (!player.hasWeapon(monster.getMonsterType().weaponNeededToKill)) {
             /* TODO -- CHECK IF WEAPON IS GREATER THEN */
             /* TODO -- REFUND PLAYER AMMO */
-            System.out.println("player does not have correct weapon, returing false");
             return false;
         }
         // Check what protects the monster. If the monster is protected, the player can
@@ -318,15 +313,12 @@ public class GameBot {
         // protectors before you recursively call canKill on the protectors.
         if (!getAllProtectorsInRoom(monster, room).isEmpty()) {
             for (Monster mon : getAllProtectorsInRoom(monster, room)) {
-                System.out.println("monster type: " + monster.getMonsterType());
-                System.out.println("protector type: " + mon.getMonsterType());
 
                 if (alreadyMarkedByCanKill.contains(mon)) {
                     continue;
                 }
 
                 if (!canKill(player, mon, room, roundsUsedPerWeapon, alreadyMarkedByCanKill)) {
-                    System.out.println("cannot kill protectors, returing false");
                     return false;
                 }
             }
@@ -336,14 +328,8 @@ public class GameBot {
         // player has it after we subtract
         // from his total ammunition the number stored in roundsUsedPerWeapon for the
         // given weapon, if any.
-        System.out.println("weapon being used: " + monster.getMonsterType().weaponNeededToKill);
-        System.out.println("amount of ammo player has: "
-                + player.getAmmunitionRoundsForWeapon(monster.getMonsterType().weaponNeededToKill));
-        System.out.println("ammo needed to kill this monster: " + monster.getMonsterType().ammunitionCountNeededToKill);
-        System.out.println("monster type: " + monster.getMonsterType());
         if (player.getAmmunitionRoundsForWeapon(
                 monster.getMonsterType().weaponNeededToKill) < monster.getMonsterType().ammunitionCountNeededToKill) {
-            System.out.println("player does not have enough ammo, returing false");
             return false;
         }
 
@@ -359,7 +345,6 @@ public class GameBot {
         // when that is subtracted from the player if his health is still > 0. If not,
         // return false.
         if (player.getHealth() - room.getPlayerHealthLostPerEncounter() <= 0) {
-            System.out.println("player does not have enough health, returing false");
             return false;
         }
 
